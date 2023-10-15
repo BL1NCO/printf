@@ -1,6 +1,6 @@
 #include "main.h"
 #include <stdio.h>
-#include <stdaeg.h>
+#include <stdarg.h>
 
 /**
  * _printf - A function that produces output according to a format.
@@ -9,9 +9,9 @@
  */
 int _printf(const char *format, ...)
 {
+    int i = 0;
     va_list arg;
     va_start(arg, format);
-    int i = 0;
 
     while (*format)
     {
@@ -48,7 +48,7 @@ int _printf(const char *format, ...)
             putchar(*format);
             i++;
         }
-        *format++;
+        format++;
     }
     va_end(arg);
     return i;
