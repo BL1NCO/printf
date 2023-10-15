@@ -3,10 +3,10 @@
 #include <stdaeg.h>
 
 /**
-* _printf - A function that produces output according to a format.
-* @format: const char argemment.
-* Return: the number of characters printe.
-*/
+ * _printf - A function that produces output according to a format.
+ * @format: const char argument.
+ * Return: the number of characters printed.
+ */
 int _printf(const char *format, ...)
 {
     va_list arg;
@@ -20,36 +20,36 @@ int _printf(const char *format, ...)
             format++;
             switch (*format)
             {
-                case 's' :
-		{
+                case 's':
+                {
                     char *s = va_arg(arg, char*);
-                    while(*s)
+                    while (*s)
                         putchar(*s++);
                     i++;
                     break;
                 }
-                case 'c' :
-		{
+                case 'c':
+                {
                     int c = va_arg(arg, int);
                     putchar(c);
                     i++;
-					break;
-				}
-				case '%' :
-                    			putchar('%');
-                    			i++;
-                    			break;
-				default :
-					break;
-			}
-		}
-		else
-		{
-            		putchar(*format);
-			i++;
-		}
-		*format++;
-	}
-	va_end(arg);
-	return (i);
+                    break;
+                }
+                case '%':
+                    putchar('%');
+                    i++;
+                    break;
+                default:
+                    break;
+            }
+        }
+        else
+        {
+            putchar(*format);
+            i++;
+        }
+        *format++;
+    }
+    va_end(arg);
+    return i;
 }
