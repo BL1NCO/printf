@@ -22,10 +22,13 @@ int _printf(const char *format, ...)
             {
                 case 's':
                 {
-                    char *s = va_arg(arg, char*);
+                    char *s = va_arg(arg, char *);
                     while (*s)
-                        putchar(*s++);
-                    i++;
+                    {
+                        putchar(*s);
+                        s++;
+                        i++;
+                    }
                     break;
                 }
                 case 'c':
