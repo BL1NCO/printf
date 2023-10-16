@@ -15,9 +15,10 @@
 #define F_SPACE 16
 
 int _printf(const char *format, ...);
-int write_c(char c);
-int printf_c(va_list args);
-int printf_s(va_list args);
+int print_char(va_list types, char buffer[], int flags, int width, int precision, int size);
+int print_string(va_list types, char buffer[], int flags, int width, int precision, int size);
+int print_percent(va_list types, char buffer[], int flags, int width, int precision, int size);
+
 int specifier(va_list arg, char buff[],
 	int flags, int width, int precision, int size);
 long int convert_size_n(long int num, int size);
