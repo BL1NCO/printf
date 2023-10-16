@@ -22,25 +22,27 @@ int _printf(const char *format, ...)
             {
                 case 'c':
                 {
-                    printf_c(args);
+                    char c = va_arg(args, int);
+                    printf_c(c);
                     count++;
                     break;
                 }
                 case 's':
                 {
-                    printf_s(args);
-                    count += printf_s(args);
+                    char *s = va_arg(args, char *);
+                    printf_s(s);
+                    count += printf_s(s);
                     break;
                 }
                 case '%':
                 {
-                    write_c(37); // 37 is the ASCII code for '%'
+                    printf_c('%');
                     count++;
                     break;
                 }
                 default:
                 {
-                    write_c(37); // 37 is the ASCII code for '%'
+                    print_c('%');
                     count++;
                     break;
                 }
@@ -48,7 +50,7 @@ int _printf(const char *format, ...)
         }
         else
         {
-            write_c(37); // 37 is the ASCII code for '%'
+            print_c(*format);
             count++;
         }
 
