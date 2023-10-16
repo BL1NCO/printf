@@ -15,7 +15,7 @@
 #define F_SPACE 16
 
 int _printf(const char *format, ...);
-int write_char(char c);
+int write_c(char c);
 int printf_c(va_list args);
 int printf_s(va_list args);
 int specifier(va_list arg, char buff[],
