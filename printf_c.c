@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdarg.h>
 
 /**
 * printf_c - write the char c to stdout.
