@@ -30,8 +30,9 @@ int _printf(const char *format, ...)
                 case 's':
                 {
                     char *s = va_arg(args, char *);
+                    int n = printf_s(s);
                     printf_s(s);
-                    count += printf_s(s);
+                    count += n;
                     break;
                 }
                 case '%':
@@ -42,7 +43,7 @@ int _printf(const char *format, ...)
                 }
                 default:
                 {
-                    print_c('%');
+                    printf_c('%');
                     count++;
                     break;
                 }
@@ -50,7 +51,7 @@ int _printf(const char *format, ...)
         }
         else
         {
-            print_c(*format);
+            printf_c(*format);
             count++;
         }
 
