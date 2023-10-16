@@ -6,12 +6,10 @@
  * @args: list of arguments (...).
  * Return: number of bytes written.
  */
-int printf_s(va_list args)
+int printf_s(char *str)
 {
-    char *str;
     int i, len;
 
-    str = va_arg(args, char *);
     for (len = 0; *str != '\0'; len++);
     if (str != NULL)
     {
