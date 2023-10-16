@@ -1,13 +1,17 @@
 #include "main.h"
 
 /**
-* printf_c - write the char c to stdout.
-* @args: list of argemments (...).
-* Return: 1
+* print_char - Prints a char
+* @types: List a of arguments
+* @buffer: Buffer array to handle print
+* @flags:  Calculates active flags
+* @width: Width
+* @precision: Precision specification
+* @size: Size specifier
+* Return: Number of chars printed
 */
-int printf_c(char c)
+int print_char(va_list types, char buffer[], int flags, int width, int precision, int size)
 {
-
-        write_c(c);
-        return (1);
+    char c = va_arg(types, int);
+    return (handle_write_char(c, buffer, flags, width, precision, size));
 }
