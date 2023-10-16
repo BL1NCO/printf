@@ -6,9 +6,8 @@
 * @args: list of argemments (...).
 * Return: 1
 */
-int printf_c(va_list args)
+int printf_c(char c)
 {
-        char c = va_arg(args, int);
 
         write_c(c);
         return (1);
