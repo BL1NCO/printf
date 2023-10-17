@@ -5,6 +5,7 @@
  * @types: Lista of arguments
  * Return: Numbers of char printed.
  */
+
 int print_binary(va_list types)
 {
 unsigned int n, m, i, sum;
