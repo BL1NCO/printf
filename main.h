@@ -5,6 +5,8 @@
 #include <stdio.h>
 #include <unistd.h>
 
+#define BUFF_SIZE 1024
+
 /**
 * struct fmt - format struct.
 * @fmt : char var.
@@ -23,6 +25,7 @@ int print_char(va_list list);
 int print_string(va_list list);
 int print_percent(va_list list);
 int print_binary(va_list types);
+void print_buffer(char buffer[], int *buff_ind);
 int _printf(const char *format, ...);
 
 #endif
