@@ -12,8 +12,8 @@
 */
 typedef struct fmt
 {
-        char fmt;
-        int (*fn)(va_list);
+char fmt;
+int (*fn)(va_list);
 } fmt_t;
 
 int _strlen(char *str);
