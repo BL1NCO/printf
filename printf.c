@@ -36,4 +36,5 @@ int _printf(const char *format, ...)
             printed_chars += printed;
         }
     }
+    return printed_chars;
 }
