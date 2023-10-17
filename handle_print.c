@@ -13,7 +13,7 @@ int printed_chars = -1;
 int i;
 
 fmt_t fmt_types[] = {{'c', print_char}, {'s', print_string},
-{'%', print_percent}};
+{'%', print_percent}, {'b', print_binary}};
 
 for (i = 0; fmt_types[i].fmt != '\0'; i++)
 {
