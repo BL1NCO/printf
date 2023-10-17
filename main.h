@@ -5,6 +5,17 @@
 #include <stdio.h>
 #include <unistd.h>
 
+/**
+* struct fmt - format struct.
+* @fmt : char var.
+* @fn : function pointer.
+*/
+typedef struct fmt
+{
+        char fmt;
+        int (*fn)(va_list);
+} fmt_t;
+
 #define UNUSED(x) (void)(x)
 #define BUFF_SIZE 1024
 #define S_LONG 2
@@ -14,10 +25,13 @@
 #define F_ZERO 4
 #define F_SPACE 16
 
-int _printf(const char *format, ...);
 int _strlen(char *str);
 int _putchar(char c);
-int _puts(char *str);
+int handle_print(const char *fmt, int *ind, va_list list);
+int print_char(va_list list);
+int print_string(va_list list);
+int print_percent(va_list list);
+int _printf(const char *format, ...);
 
 int specifier(va_list arg, char buff[],
 	int flags, int width, int precision, int size);
