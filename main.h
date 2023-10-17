@@ -15,9 +15,9 @@
 #define F_SPACE 16
 
 int _printf(const char *format, ...);
-int print_char(va_list types, char buffer[], int flags, int width, int precision, int size);
-int print_string(va_list types, char buffer[], int flags, int width, int precision, int size);
-int print_percent(va_list types, char buffer[], int flags, int width, int precision, int size);
+int _strlen(char *str);
+int _putchar(char c);
+int _puts(char *str);
 
 int specifier(va_list arg, char buff[],
 	int flags, int width, int precision, int size);
