@@ -27,6 +27,9 @@ int print_percent(va_list list);
 int print_binary(va_list types);
 void print_buffer(char buffer[], int *buff_ind);
 int _printf(const char *format, ...);
+int print_int(va_list arg);
+int print_decimal(va_list arg);
+int print_u(va_list arg);
 
 #endif
 
