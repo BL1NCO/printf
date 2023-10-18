@@ -5,6 +5,7 @@
  * @list: va_list containing the pointer
  * Return: number of characters printed
  */
+
 int print_pointer(va_list list)
 {
 void *ptr = va_arg(list, void *);

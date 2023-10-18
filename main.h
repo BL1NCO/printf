@@ -12,6 +12,7 @@
 * @fmt : char var.
 * @fn : function pointer.
 */
+
 typedef struct fmt
 {
 char fmt;
