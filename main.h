@@ -12,6 +12,7 @@
 * @fmt : char var.
 * @fn : function pointer.
 */
+
 typedef struct fmt
 {
 char fmt;
@@ -30,6 +31,7 @@ int _printf(const char *format, ...);
 int print_int(va_list arg);
 int print_decimal(va_list arg);
 int print_pointer(va_list list);
+int print_octal(va_list n);
 
 #endif
 

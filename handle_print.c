@@ -7,6 +7,7 @@
  * @list: The va_list of arguments.
  * Return: The number of characters printed.
  */
+
 int handle_print(const char *fmt, int *ind, va_list list)
 {
 int printed_chars = -1;
