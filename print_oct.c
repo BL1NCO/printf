@@ -3,16 +3,14 @@
 /**
  * print_octal - printing from a to z lowercase
  *
- * Return: Always 0 (Sucess)
- * @n: parametre used as integer
+ * Return: Number of characters printed
+ * @n: Parameter used as an unsigned integer
  */
-
-
 int print_octal(va_list n)
 {
 int i, c = 0;
 int *array;
-unsigned int numb va_arg(n, unsigned int);
+unsigned int numb = va_arg(n, unsigned int);
 unsigned int temp = numb;
 
 while (numb / 8 != 0)
@@ -21,21 +19,24 @@ numb = numb / 8;
 c++;
 }
 c++;
-array malloc(sizeof(int) c);
+array = malloc(sizeof(int) * c);
+
 if (array == NULL)
 {
-return (NULL);
+return (-1);
 }
+
 for (i = 0; i < c; i++)
 {
-array[i] temp % 8;
+array[i] = temp % 8;
 temp = temp / 8;
 }
 
-for (i = c - 1; 1 >= 0; i--)
+for (i = c - 1; i >= 0; i--)
 {
-_pucthar(array[i] + '0');
+_putchar(array[i] + '0');
 }
+
 free(array);
 return (c);
 }

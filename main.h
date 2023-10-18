@@ -4,6 +4,7 @@
 #include <stdarg.h>
 #include <stdio.h>
 #include <unistd.h>
+#include <stdlib.h>
 
 #define BUFF_SIZE 1024
 
@@ -30,7 +31,7 @@ void print_buffer(char buffer[], int *buff_ind);
 int _printf(const char *format, ...);
 int print_int(va_list arg);
 int print_decimal(va_list arg);
-int print_pointer(va_list list);
+
 int print_octal(va_list n);
 
 #endif
