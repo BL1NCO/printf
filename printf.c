@@ -7,9 +7,9 @@
  */
 int _printf(const char *format, ...)
 {
-int i, printed = 0, printed_chars = 0;
+int i, printed, printed_chars = 0;
 va_list list;
-int buff_i;
+int buff_i = 0;
 char buffer[BUFF_SIZE];
 
 if (format == NULL)
@@ -34,15 +34,13 @@ printed = handle_print(format, &i, list);
 
 if (printed == -1)
 {
-va_end(list);
 return (-1);
 }
-
-
 
 printed_chars += printed;
 }
 }
 print_buffer(buffer, &buff_i);
+va_end(list);
 return (printed_chars);
 }

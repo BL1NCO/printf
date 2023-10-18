@@ -18,7 +18,7 @@ char fmt;
 int (*fn)(va_list);
 } fmt_t;
 
-int _strlen(char *str);
+int _strlen(const char *str);
 int _putchar(char c);
 int handle_print(const char *fmt, int *ind, va_list list);
 int print_char(va_list list);

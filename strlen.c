@@ -5,15 +5,13 @@
  * @str: The string argument.
  * Return: The length of the string.
  */
-
-int _strlen(char *str)
+int _strlen(const char *str)
 {
 int len = 0;
 
-while (*str)
+while (str[len] != '\0')
 {
 len++;
-str++;
 }
 return (len);
 }
