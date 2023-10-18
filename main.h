@@ -32,6 +32,7 @@ int print_int(va_list arg);
 int print_decimal(va_list arg);
 int print_u(va_list arg);
 int print_pointer(va_list list);
+int print_octal(va_list n);
 
 #endif
 
