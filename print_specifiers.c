@@ -44,7 +44,7 @@ int i = 1;
 m = m / 10;
 number = m;
 
-if (m < 0)
+if (l < 0)
 {
 _putchar('-');
 number = -number;
@@ -89,7 +89,7 @@ int i = 1;
 m = m / 10;
 number = m;
 
-if (m < 0)
+if (l < 0)
 {
 _putchar('-');
 number = -number;
