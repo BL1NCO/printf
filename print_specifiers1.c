@@ -55,6 +55,17 @@ unsigned int number;
 int l = m % 10, d, e = 1;
 int i = 1;
 
+if (m == 0)
+{
+_putchar('0');
+return (1);
+}
+if (m < 10)
+{
+_putchar(m + '0');
+return (1);
+}
+
 m = m / 10;
 number = m;
 
@@ -98,7 +109,7 @@ return (1);
  */
 int print_hex(va_list n)
 {
-int num = va_arg(n, int);
+long int num = va_arg(n, long int);
 char hex[100];
 int i = 0, c = 0;
 int remainder, j;
@@ -109,7 +120,7 @@ _putchar('0');
 return (1);
 }
 
-while (num > 0)
+while (num != 0)
 {
 remainder = num % 16;
 if (remainder < 10)
@@ -134,7 +145,7 @@ return (c);
  */
 int print_hex_upper(va_list n)
 {
-int num = va_arg(n, int);
+long int num = va_arg(n, long int);
 char hex[100];
 int i = 0, c = 0;
 int remainder, j;
@@ -145,7 +156,7 @@ _putchar('0');
 return (1);
 }
 
-while (num > 0)
+while (num != 0)
 {
 remainder = num % 16;
 if (remainder < 10)
