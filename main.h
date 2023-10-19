@@ -7,6 +7,7 @@
 #include <stdlib.h>
 
 #define BUFF_SIZE 1024
+#define UNUSED(x) (void)(x)
 
 /**
 * struct fmt - format struct.
@@ -31,8 +32,11 @@ void print_buffer(char buffer[], int *buff_ind);
 int _printf(const char *format, ...);
 int print_int(va_list arg);
 int print_decimal(va_list arg);
-
 int print_octal(va_list n);
+int print_unsigned(va_list arg);
+int print_octal(va_list n);
+int print_hex(va_list n);
+int print_hex_upper(va_list n);
 
 #endif
 
