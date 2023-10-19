@@ -120,7 +120,7 @@ _putchar('0');
 return (1);
 }
 
-while (num != 0)
+while (num > 0)
 {
 remainder = num % 16;
 if (remainder < 10)
@@ -156,7 +156,7 @@ _putchar('0');
 return (1);
 }
 
-while (num != 0)
+while (num > 0)
 {
 remainder = num % 16;
 if (remainder < 10)
