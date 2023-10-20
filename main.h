@@ -20,7 +20,7 @@ typedef struct fmt {
 
 int _strlen(const char *str);
 int _putchar(char c);
-int handle_print(const char *fmt, int *ind, va_list list);
+//int handle_print(const char *fmt, int *ind, va_list list);
 int print_char(va_list list);
 int print_string(va_list list);
 int print_percent(va_list list);

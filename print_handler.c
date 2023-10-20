@@ -23,7 +23,7 @@ handler:
 		s = 13;
 		while (s >= 0)
 		{
-			if (fmt_types[s].id[0] == format[m] && fmt_types[s].id[1] == format[m + 1])
+			if (fmt_types[s].fmt[0] == format[m] && fmt_types[s].fmt[1] == format[m + 1])
 			{
 				l += fmt_types[s].fn(varlist);
 				m = m + 2;
