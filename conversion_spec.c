@@ -18,7 +18,7 @@ int conversion_spec(va_list args)
 		str = "(null)";
 	while (str[i] != '\0')
 		i++;
-	for (g = j - 1; g >= 0; g--)
+	for (g = i - 1; g >= 0; g--)
 		_putchar(str[g]);
 	return (i);
 }
