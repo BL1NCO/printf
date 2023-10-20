@@ -1,6 +1,6 @@
 #include "main.h"
 
-int _printf(const char *format, ...)
+int handle_print(const char *format, va_list varlist)
 {
 fmt_t fmt_types[] = {
 {"%c", print_char}, {"%s", print_string}, {"%%", print_percent},
@@ -8,7 +8,6 @@ fmt_t fmt_types[] = {
 {"%u", print_unsigned}, {"%x", print_hex}, {"%X", print_hex_upper},
 {"%S", print_non_printable}, {"%p", print_pointer}, {"%r", conversion_spec}};
 
-va_list varlist;
 	int m = 0;
 	int s;
 	int l = 0;
