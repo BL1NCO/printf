@@ -1,28 +1,23 @@
 #include "main.h"
 
 /**
- * conversion_spec - print reverse funtion
+ * print_revs - function that prints a str in reverse
+ * @args: type struct va_arg where is allocated printf arguments
  *
- * @var: arg
- * Return: str value
+ * Return: the string
  */
-
-int conversion_spec(val_list var)
+int print_revs(va_list args)
 {
-	char *string = va_arg(var, char*);
-	int j, m = 0;
 
-	if (string == NULL)
-	{
-		string = "(null)";
-	}
-	while (string[j] != '\0')
-	{
-		m++;
-	}
-	for (j = m - 1; j >= 0; j--)
-	{
-		_putchar(string[j]);
-	}
-	return (m);
+	char *s = va_arg(args, char*);
+	int i;
+	int j = 0;
+
+	if (s == NULL)
+		s = "(null)";
+	while (s[j] != '\0')
+		j++;
+	for (i = j - 1; i >= 0; i--)
+		_putchar(s[i]);
+	return (j);
 }
