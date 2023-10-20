@@ -58,3 +58,4 @@ buffer[i++] = map_to[ascii_code / 16];
 buffer[i] = map_to[ascii_code % 16];
 return (3);
 }
+

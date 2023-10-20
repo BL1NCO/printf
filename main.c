@@ -7,8 +7,9 @@
  */
 int main(void)
 {
-    
-    printf("%S\n", "Best\nSchool");
-    _printf("%S\n", "Best\nSchool");
+    void *addr = (void *)0x7ffe637541f0;
+
+    _printf("%p", addr);
+    printf("%p", addr);
     return (0);
 }
