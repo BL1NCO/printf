@@ -36,20 +36,3 @@ void print_buffer(char buffer[], int *buff_ind)
 write(1, buffer, *buff_ind);
 *buff_ind = 0;
 }
-
-/**
- * _pow - Prints the contents of the buffer if it exist
- * @x: base
- * @y: power.
- * Return: Value of x or 0
- */
-int _pow(int x, int y)
-{
-int i, r = 1;
-
-if (y == 0)
-return (1);
-for (i = 1; i < y; i++)
-r *= x;
-return (x);
-}
