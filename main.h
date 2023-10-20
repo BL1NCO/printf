@@ -39,4 +39,3 @@ int print_hex(va_list n);
 int print_hex_upper(va_list n);
 
 #endif
-
