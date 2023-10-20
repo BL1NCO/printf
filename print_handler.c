@@ -25,15 +25,15 @@ handler:
 		{
 			if (fmt_types[s].fmt[0] == format[m] && fmt_types[s].fmt[1] == format[m + 1])
 			{
-				l += fmt_types[s].fn(varlist);
+				l = l + fmt_types[s].fn(varlist);
 				m = m + 2;
 				goto handler;
 			}
 			s--;
 		}
 		_putchar(format[m]);
-		l++;
 		m++;
+		l++;
 	}
 	va_end(varlist);
 	return (l);
