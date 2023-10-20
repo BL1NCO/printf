@@ -24,7 +24,7 @@ fmt_t fmt_types[] = {
 {'c', print_char}, {'s', print_string}, {'%', print_percent},
 {'b', print_binary}, {'d', print_int}, {'i', print_int}, {'o', print_octal},
 {'u', print_unsigned}, {'x', print_hex}, {'X', print_hex_upper},
-{'S', print_non_printable}, {'p', print_pointer}};
+{'S', print_non_printable}, {'p', print_pointer}, {'r', conversion_spec}};
 
 for (i = 0; fmt_types[i].fmt != '\0'; i++)
 {

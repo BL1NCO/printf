@@ -36,5 +36,6 @@ int print_hex_upper(va_list n);
 int print_non_printable(va_list types);
 int append_hexa_code(char ascii_code, char buffer[], int i);
 int print_pointer(va_list types);
+int conversion_spec(val_list var);
 
 #endif
