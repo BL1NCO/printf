@@ -9,15 +9,13 @@
 #define BUFF_SIZE 1024
 
 /**
-* struct fmt - format struct.
-* @fmt : char var.
-* @fn : function pointer.
-*/
-
-typedef struct fmt
-{
-char fmt;
-int (*fn)(va_list);
+ * struct fmt – format struct.
+ * @fmt : char var.
+ * @fn : function pointer.
+ */
+typedef struct fmt {
+    char fmt;
+    int (*fn)(va_list);
 } fmt_t;
 
 int _strlen(const char *str);
@@ -33,7 +31,6 @@ int print_int(va_list arg);
 int print_decimal(va_list arg);
 int print_octal(va_list n);
 int print_unsigned(va_list arg);
-int print_octal(va_list n);
 int print_hex(va_list n);
 int print_hex_upper(va_list n);
 
