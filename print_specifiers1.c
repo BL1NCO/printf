@@ -10,8 +10,8 @@ int print_octal(va_list n)
 {
 int i, c = 0;
 int *array;
-unsigned int numb = va_arg(n, unsigned int);
-unsigned int temp = numb;
+unsigned long int numb = va_arg(n, unsigned long int);
+unsigned long int temp = numb;
 
 while (numb / 8 != 0)
 {
@@ -50,8 +50,8 @@ return (c);
 
 int print_unsigned(va_list arg)
 {
-unsigned int m = va_arg(arg, unsigned int);
-unsigned int number;
+unsigned long int m = va_arg(arg, unsigned long int);
+unsigned long int number;
 int l = m % 10, d, e = 1;
 int i = 1;
 
@@ -109,7 +109,7 @@ return (1);
  */
 int print_hex(va_list n)
 {
-long int num = va_arg(n, long int);
+unsigned long int num = va_arg(n, unsigned long int);
 char hex[100];
 int i = 0, c = 0;
 int remainder, j;
@@ -145,7 +145,7 @@ return (c);
  */
 int print_hex_upper(va_list n)
 {
-long int num = va_arg(n, long int);
+unsigned long int num = va_arg(n, unsigned qlong int);
 char hex[100];
 int i = 0, c = 0;
 int remainder, j;
