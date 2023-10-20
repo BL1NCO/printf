@@ -13,9 +13,10 @@
  * @fmt : char var.
  * @fn : function pointer.
  */
-typedef struct fmt {
-    char fmt;
-    int (*fn)(va_list);
+typedef struct format
+{
+    char *fmt;
+    int (*fn)();
 } fmt_t;
 
 int _strlen(const char *str);
