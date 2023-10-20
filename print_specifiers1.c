@@ -1,170 +1,156 @@
 #include "main.h"
 
 /**
- * print_octal - printing from a to z lowercase
- *
- * Return: Number of characters printed
- * @n: Parameter used as an unsigned integer
+ * print_unsigned - Prints an unsigned number
+ * @types: List a of arguments
+ * @buffer: Buffer array to handle print
+ * @flags:  Calculates active flags
+ * @width: get width
+ * @precision: Precision specification
+ * @size: Size specifier
+ * Return: Number of chars printed.
  */
-int print_octal(va_list n)
+int print_unsigned(va_list types, char buffer[],
+	int flags, int width, int precision, int size)
 {
-int i, c = 0;
-int *array;
-unsigned long int numb = va_arg(n, unsigned long int);
-unsigned long int temp = numb;
+	int i = BUFF_SIZE - 2;
+	unsigned long int num = va_arg(types, unsigned long int);
 
-while (numb / 8 != 0)
-{
-numb = numb / 8;
-c++;
-}
-c++;
-array = malloc(sizeof(int) * c);
+	num = convert_size_unsgnd(num, size);
 
-if (array == NULL)
-{
-return (-1);
-}
+	if (num == 0)
+		buffer[i--] = '0';
 
-for (i = 0; i < c; i++)
-{
-array[i] = temp % 8;
-temp = temp / 8;
-}
+	buffer[BUFF_SIZE - 1] = '\0';
 
-for (i = c - 1; i >= 0; i--)
-{
-_putchar(array[i] + '0');
-}
+	while (num > 0)
+	{
+		buffer[i--] = (num % 10) + '0';
+		num /= 10;
+	}
 
-free(array);
-return (c);
+	i++;
+
+	return (write_unsgnd(0, i, buffer, flags, width, precision, size));
 }
 
 /**
- * print_unsigned - printing from a to z lowercase
- *
- * Return: Always 0 (Success)
- * @arg: parameter used as unsigned integer
+ * print_octal - Prints an unsigned number in octal notation
+ * @types: Lista of arguments
+ * @buffer: Buffer array to handle print
+ * @flags:  Calculates active flags
+ * @width: get width
+ * @precision: Precision specification
+ * @size: Size specifier
+ * Return: Number of chars printed
  */
-int print_unsigned(va_list arg)
+int print_octal(va_list types, char buffer[],
+	int flags, int width, int precision, int size)
 {
-unsigned long int m = va_arg(arg, unsigned long int);
-unsigned long int number;
-int l = m % 10, d, e = 1;
-int i = 1;
 
-if (m == 0)
-{
-_putchar('0');
-return (1);
-}
-if (m < 10)
-{
-_putchar(m + '0');
-return (1);
-}
+	int i = BUFF_SIZE - 2;
+	unsigned long int num = va_arg(types, unsigned long int);
+	unsigned long int init_num = num;
 
-m = m / 10;
-number = m;
-while (number / 10 != 0)
-{
-e = e * 10;
-number = number / 10;
-}
-number = m;
-while (e > 0)
-{
-d = number / e;
-_putchar(d + '0');
-number = number - (d *e);
-e = e / 10;
-i++;
-}
+	UNUSED(width);
 
-_putchar(l + '0');
-return (i);
+	num = convert_size_unsgnd(num, size);
+
+	if (num == 0)
+		buffer[i--] = '0';
+
+	buffer[BUFF_SIZE - 1] = '\0';
+
+	while (num > 0)
+	{
+		buffer[i--] = (num % 8) + '0';
+		num /= 8;
+	}
+
+	if (flags & F_HASH && init_num != 0)
+		buffer[i--] = '0';
+
+	i++;
+
+	return (write_unsgnd(0, i, buffer, flags, width, precision, size));
 }
 
 /**
- * print_percent - printing %.
- *
- * Return: Always 0 (Success)
- * @list: parameter used as unsigned integer
+ * print_hexadecimal - Prints an unsigned number in hexadecimal notation
+ * @types: Lista of arguments
+ * @buffer: Buffer array to handle print
+ * @flags:  Calculates active flags
+ * @width: get width
+ * @precision: Precision specification
+ * @size: Size specifier
+ * Return: Number of chars printed
  */
-int print_percent(va_list list)
+int print_hexadecimal(va_list types, char buffer[],
+	int flags, int width, int precision, int size)
 {
-(void)list;
-_putchar('%');
-return (1);
+	return (print_hexa(types, "0123456789abcdef", buffer,
+		flags, 'x', width, precision, size));
 }
 
 /**
- * print_hex - printing hexadecimal
- * Return: Number of characters printed
- * @n: Parameter used as an unsigned integer
+ * print_hexa_upper - Prints an unsigned number in upper hexadecimal notation
+ * @types: Lista of arguments
+ * @buffer: Buffer array to handle print
+ * @flags:  Calculates active flags
+ * @width: get width
+ * @precision: Precision specification
+ * @size: Size specifier
+ * Return: Number of chars printed
  */
-int print_hex(va_list n)
+int print_hexa_upper(va_list types, char buffer[],
+	int flags, int width, int precision, int size)
 {
-unsigned long int num = va_arg(n, unsigned long int);
-char hex[100];
-int i = 0, c = 0;
-int remainder, j;
-
-if (num == 0)
-{
-_putchar('0');
-return (1);
-}
-
-while (num > 0)
-{
-remainder = num % 16;
-if (remainder < 10)
-hex[i++] = remainder + '0';
-else
-hex[i++] = remainder + 'a' - 10;
-num /= 16;
-}
-for (j = i - 1; j >= 0; j--)
-{
-_putchar(hex[j]);
-c++;
-}
-
-return (c);
+	return (print_hexa(types, "0123456789ABCDEF", buffer,
+		flags, 'X', width, precision, size));
 }
 
 /**
- * print_hex_upper - printing upper hexadecimal
- * Return: Number of characters printed
- * @n: Parameter used as an unsigned integer
+ * print_hexa - Prints a hexadecimal number in lower or upper
+ * @types: Lista of arguments
+ * @map_to: Array of values to map the number to
+ * @buffer: Buffer array to handle print
+ * @flags:  Calculates active flags
+ * @flag_ch: Calculates active flags
+ * @width: get width
+ * @precision: Precision specification
+ * @size: Size specifier
+ * @size: Size specification
+ * Return: Number of chars printed
  */
-int print_hex_upper(va_list n)
+int print_hexa(va_list types, char map_to[], char buffer[],
+	int flags, char flag_ch, int width, int precision, int size)
 {
-unsigned long int num = va_arg(n, unsigned long int);
-char hex[100];
-int i = 0, c = 0;
-int remainder, j;
+	int i = BUFF_SIZE - 2;
+	unsigned long int num = va_arg(types, unsigned long int);
+	unsigned long int init_num = num;
 
-if (num == 0)
-{
-_putchar('0');
-return (1);
-}
-while (num > 0)
-{
-remainder = num % 16;
-if (remainder < 10)
-hex[i++] = remainder + '0';
-else
-hex[i++] = remainder + 'A' - 10;
-num /= 16;
-}
-for (j = i - 1; j >= 0; j--)
-{
-_putchar(hex[j]);
-c++;
-}
-return (c);
+	UNUSED(width);
+
+	num = convert_size_unsgnd(num, size);
+
+	if (num == 0)
+		buffer[i--] = '0';
+
+	buffer[BUFF_SIZE - 1] = '\0';
+
+	while (num > 0)
+	{
+		buffer[i--] = map_to[num % 16];
+		num /= 16;
+	}
+
+	if (flags & F_HASH && init_num != 0)
+	{
+		buffer[i--] = flag_ch;
+		buffer[i--] = '0';
+	}
+
+	i++;
+
+	return (write_unsgnd(0, i, buffer, flags, width, precision, size));
 }
