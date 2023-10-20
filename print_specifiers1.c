@@ -77,7 +77,7 @@ while (e > 0)
 {
 d = number / e;
 _putchar(d + '0');
-number = number - (d * e);
+number = number - (d *e);
 e = e / 10;
 i++;
 }
