@@ -14,6 +14,7 @@
  *
  * Return: The number of characters printed by the handling function.
  */
+
 int handle_print(const char *fmt, int *ind, va_list list)
 {
 int printed_chars = -1;
