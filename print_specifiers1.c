@@ -44,10 +44,9 @@ return (c);
 /**
  * print_unsigned - printing from a to z lowercase
  *
- * Return: Always 0 (Sucess)
- * @arg: parametre used as unsigned integer
+ * Return: Always 0 (Success)
+ * @arg: parameter used as unsigned integer
  */
-
 int print_unsigned(va_list arg)
 {
 unsigned long int m = va_arg(arg, unsigned long int);
@@ -68,7 +67,6 @@ return (1);
 
 m = m / 10;
 number = m;
-
 while (number / 10 != 0)
 {
 e = e * 10;
@@ -79,9 +77,9 @@ while (e > 0)
 {
 d = number / e;
 _putchar(d + '0');
-number = number - (d *e);
+number = number - (d * e);
 e = e / 10;
-i++;
+i++
 }
 
 _putchar(l + '0');
@@ -91,19 +89,18 @@ return (i);
 /**
  * print_percent - printing %.
  *
- * Return: Always 0 (Sucess)
- * @list: parametre used as unsigned integer
+ * Return: Always 0 (Success)
+ * @list: parameter used as unsigned integer
  */
-
 int print_percent(va_list list)
 {
-(void) list;
+(void)list;
 _putchar('%');
 return (1);
 }
 
 /**
- * print_hex - printing hexdecimal
+ * print_hex - printing hexadecimal
  * Return: Number of characters printed
  * @n: Parameter used as an unsigned integer
  */
@@ -139,13 +136,13 @@ return (c);
 }
 
 /**
- * print_hex_upper - printing upper hexdecimal
+ * print_hex_upper - printing upper hexadecimal
  * Return: Number of characters printed
  * @n: Parameter used as an unsigned integer
  */
 int print_hex_upper(va_list n)
 {
-unsigned long int num = va_arg(n, unsigned qlong int);
+unsigned long int num = va_arg(n, unsigned long int);
 char hex[100];
 int i = 0, c = 0;
 int remainder, j;
@@ -155,7 +152,6 @@ if (num == 0)
 _putchar('0');
 return (1);
 }
-
 while (num > 0)
 {
 remainder = num % 16;
@@ -170,6 +166,5 @@ for (j = i - 1; j >= 0; j--)
 _putchar(hex[j]);
 c++;
 }
-
 return (c);
 }
