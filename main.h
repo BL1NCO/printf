@@ -33,5 +33,7 @@ int print_octal(va_list n);
 int print_unsigned(va_list arg);
 int print_hex(va_list n);
 int print_hex_upper(va_list n);
+int print_non_printable(va_list types);
+int append_hexa_code(char ascii_code, char buffer[], int i);
 
 #endif
