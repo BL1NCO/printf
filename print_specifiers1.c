@@ -79,7 +79,7 @@ d = number / e;
 _putchar(d + '0');
 number = number - (d * e);
 e = e / 10;
-i++
+i++;
 }
 
 _putchar(l + '0');
