@@ -18,11 +18,11 @@
 #define S_SHORT 1
 
 /**
- * fmt_t - Structure for defining a 
+ * struct fmt - Structure for defining a
  * format-specifier-to-function mapping.
  *
  * @fmt: The format specifier character, such as 'c' or 's'.
- * @fn: A function pointer associated with the format 
+ * @fn: A function pointer associated with the format
  * specifier for printing.
  */
 typedef struct fmt
