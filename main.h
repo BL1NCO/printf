@@ -1,5 +1,6 @@
 #ifndef MAIN_H
 #define MAIN_H
+
 #include <stdarg.h>
 #include <stdio.h>
 #include <unistd.h>
@@ -17,18 +18,18 @@
 #define S_SHORT 1
 
 /**
- * struct fmt - Struct op
+ * fmt_t - Structure for defining a 
+ * format-specifier-to-function mapping.
  *
- * @fmt: The format.
- * @fn: The function associated.
+ * @fmt: The format specifier character, such as 'c' or 's'.
+ * @fn: A function pointer associated with the format 
+ * specifier for printing.
  */
-struct fmt
+typedef struct fmt
 {
 	char fmt;
 	int (*fn)(va_list, char[], int, int, int, int);
-};
-
-typedef struct fmt fmt_t;
+} fmt fmt_t;
 
 int _printf(const char *format, ...);
 int handle_print(const char *fmt, int *i,
