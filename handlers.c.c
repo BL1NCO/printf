@@ -1,6 +1,5 @@
 #include "main.h"
 
-/************************* WRITE HANDLE *************************/
 /**
  * handle_write_char - Prints a string
  * @c: char types.
@@ -12,6 +11,7 @@
  *
  * Return: Number of chars printed.
  */
+
 int handle_write_char(char c, char buffer[],
 	int flags, int width, int precision, int size)
 {
